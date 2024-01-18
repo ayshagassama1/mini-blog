@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,5 +16,13 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/', [IndexController::class,'index']);
+Route::get('/', [IndexController::class,'index'])->name('home');
+Route::get('/signup', [SessionController::class,'signup'])->name('signupform');
+Route::get('/login', [SessionController::class,'login'])->name('loginform');
+Route::get('/logout', [SessionController::class,'logout']);
+Route::get('/post/{id}', [PostController::class,'show']);
+Route::get('/user/{id}', [UserController::class,'show']);
+Route::post('/signup', [UserController::class,'store'])->name('signup');
+Route::post('/login', [UserController::class,'login'])->name('login');
+
 

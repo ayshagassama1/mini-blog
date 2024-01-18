@@ -18,6 +18,32 @@ class UserController extends Controller
         $user->password = Hash::make($request['password']);
 
         $user->save();
+
+        // set session
+        session(['user'=> $user]);
+        return redirect('/');
+    }
+
+    //login
+    public function login(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        $rep = "";
+        // check if user exists
+        if(!$user){
+            $rep = "user does not exist";
+            return view('login', ['rep'=>$rep]);
+        }
+
+        // check if password is correct
+        if(!Hash::check($request->password, $user->password)){
+            $rep = "incorrect password";
+            return view('login', ['rep'=>$rep]);
+        }
+
+        // set session
+        session(['user'=> $user]);
+        return redirect('/');
     }
 
     //show
@@ -33,4 +59,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
     }
+
+  
 }
