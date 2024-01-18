@@ -18,24 +18,27 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
+        </li>
+        @if(session('user') == null)
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('loginform')}}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="{{route('signupform')}}">Sign up</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
+        @else
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
+            My profile
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">My posts</a></li>
+            <li><a class="dropdown-item" href="#">My account</a></li>
+            <li><a class="dropdown-item" href="{{route('logout')}}">Log out</a></li>
           </ul>
         </li>
+        @endif
       </ul>
     </div>
   </div>

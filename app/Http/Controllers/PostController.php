@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -23,7 +24,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return $post;
+        //update the number of requests
+        $post->nb_request = $post->nb_request + 1;
+        $post->save();
+        //the user who created the post
+        $user = User::find($post->user_id);
+        return view('post', ['post'=>$post, 'user'=>$user]);
     }
 
     //delete

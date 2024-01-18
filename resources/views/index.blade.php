@@ -9,7 +9,7 @@
             <div>
                 <h2>{{ $post->title }}</h2>
                 <p>{{ $post->body }}</p>
-                <p><a href="">Lire la suite</a></p>
+                <p><a href="/post/{{$post->id}}">Lire la suite</a></p>
             </div>
         </div>
     @endforeach

@@ -19,7 +19,7 @@ use App\Http\Controllers\SessionController;
 Route::get('/', [IndexController::class,'index'])->name('home');
 Route::get('/signup', [SessionController::class,'signup'])->name('signupform');
 Route::get('/login', [SessionController::class,'login'])->name('loginform');
-Route::get('/logout', [SessionController::class,'logout']);
+Route::get('/logout', [SessionController::class,'logout'])->name('logout');
 Route::get('/post/{id}', [PostController::class,'show']);
 Route::get('/user/{id}', [UserController::class,'show']);
 Route::post('/signup', [UserController::class,'store'])->name('signup');
