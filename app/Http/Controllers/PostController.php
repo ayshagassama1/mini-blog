@@ -14,10 +14,19 @@ class PostController extends Controller
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->user_id = session('user')->id;
         $post->is_active = 1;
         $post->nb_request = 0;
 
         $post->save();
+
+        return redirect()->route('userposts');
+    }
+
+    //show form to create a post
+    public function create()
+    {
+        return view('createpost');
     }
 
     //show
