@@ -32,7 +32,7 @@ cd mini-blog
 ### Connection      
     There are 2 users in the database
 |Name|Email|Password|     
-|----|-----|
+|----|-----|--------|
 |Jonh Doe|johndoe@email.com|VerySecretPassword|
 |Jane Doe|janedoe@email.com|VerySecretPassword|
 
