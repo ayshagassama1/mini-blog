@@ -41,7 +41,7 @@
         </li>
         @endif
         <li class="nav-item">
-          <a class="nav-link" href="{{route('loginform')}}">RSS</a>
+          <a class="nav-link" href="{{route('rss')}}">RSS</a>
         </li>
       </ul>
     </div>

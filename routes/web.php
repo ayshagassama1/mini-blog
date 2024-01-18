@@ -33,5 +33,6 @@ Route::get('/createpost', [PostController::class,'create'])->name('createpost');
 Route::post('createpost', [PostController::class,'store'])->name('createpost');
 Route::get('/edituser', [UserController::class,'edit'])->name('edituser');
 Route::post('/updateuser', [UserController::class,'update'])->name('updateuser');
+Route::get('/rss', [PostController::class,'rss'])->name('rss');
 
 

@@ -74,4 +74,11 @@ class PostController extends Controller
             $post->is_active = 0;
         $post->save();
     }
+
+    //rss feed of all active posts in json format
+    public function rss()
+    {
+        $posts = Post::where('is_active', 1)->get();
+        return response()->json($posts);
+    }
 }
