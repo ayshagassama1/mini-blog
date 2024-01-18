@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MINI BLOG</title>
-</head>
-<body>
-    <h1>Bienvenue sur le blog</h1>
-    <div class="main">
+@extends('layout.main')
+@section('titre', 'Accueil')
 
-    </div>
-</body>
-</html>
+@section('contenu')
+<h1>Bienvenue sur le blog</h1>
+<div class="main row mt-3 mb-3 ">
+    @foreach($posts as $post)
+        <div class="post col-sm-12 col-lg-2 pt-1 m-2 border border-primary position-relative">
+            <div>
+                <h2>{{ $post->title }}</h2>
+                <p>{{ $post->body }}</p>
+                <p><a href="">Lire la suite</a></p>
+            </div>
+        </div>
+    @endforeach
+</div>
+@endsection

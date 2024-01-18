@@ -10,7 +10,7 @@ class IndexController extends Controller
     //list all posts
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::all()->sortByDesc('nb_request');
         return view('index', compact('posts'));
     }
 }
