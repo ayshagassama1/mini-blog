@@ -35,11 +35,14 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="{{route('userposts')}}">My posts</a></li>
             <li><a class="dropdown-item" href="{{route('createpost')}}">Create post</a></li>
-            <li><a class="dropdown-item" href="#">My account</a></li>
+            <li><a class="dropdown-item" href="{{route('edituser')}}">My account</a></li>
             <li><a class="dropdown-item" href="{{route('logout')}}">Log out</a></li>
           </ul>
         </li>
         @endif
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('loginform')}}">RSS</a>
+        </li>
       </ul>
     </div>
   </div>

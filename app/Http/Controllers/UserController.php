@@ -60,5 +60,23 @@ class UserController extends Controller
         $user->delete();
     }
 
-  
+    //edit
+    public function edit()
+    {
+        $user = User::find(session('user')->id);
+        return view('edituser');
+    }
+
+    //update
+    public function update(Request $request)
+    {
+        $user = User::find(session('user')->id);
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->password = Hash::make($request['password']);
+        $user->save();
+        session(['user'=> $user]);
+        return redirect('/');
+    }
 }
