@@ -24,5 +24,10 @@ Route::get('/post/{id}', [PostController::class,'show']);
 Route::get('/user/{id}', [UserController::class,'show']);
 Route::post('/signup', [UserController::class,'store'])->name('signup');
 Route::post('/login', [UserController::class,'login'])->name('login');
+Route::post('/post', [PostController::class,'store'])->name('post');
+Route::get('/userposts', [PostController::class,'showPosts'])->name('userposts');
+Route::get('/editpost/{id}', [PostController::class,'edit'])->name('editpost');
+Route::post('/updatepost/{id}', [PostController::class,'update'])->name('updatepost');
+Route::get('/deletepost/{id}', [PostController::class,'destroy'])->name('deletepost');
 
 

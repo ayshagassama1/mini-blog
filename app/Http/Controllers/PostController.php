@@ -38,4 +38,31 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
     }
+
+    //show the posts of a user
+    public function showPosts()
+    {
+        $posts = Post::where('user_id', session('user')->id)->get();
+        return view('userposts', ['posts'=>$posts]);
+    }
+
+    //edit a post
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        return view('editpost', ['post'=>$post]);
+    }
+
+    //update a post
+    public function update(Request $request, $id)
+    {
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        if($request->is_active == "on")
+            $post->is_active = 1;
+        else
+            $post->is_active = 0;
+        $post->save();
+    }
 }

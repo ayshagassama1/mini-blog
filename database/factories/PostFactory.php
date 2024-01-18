@@ -25,7 +25,7 @@ class PostFactory extends Factory
             "nb_request" => 0,
             "title" => $this->faker->sentence(),
             "body" => $this->faker->text(),
-            "user_id" => $this->faker->numberBetween(1, 3),
+            "user_id" => $this->faker->numberBetween(1, 2),
         ];
     }
 }
